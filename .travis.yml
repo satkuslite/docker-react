@@ -7,3 +7,17 @@ before_install:
 
 script: 
   - docker run -e CI=ture satkusfish/docker-react npm run test
+
+deploy: 
+  provider: elasticbeanstalk
+  reogion: "eu-central-1"
+  app: "web-for-dock"
+  env: "Web-for-dock-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-092993171617"
+  bucket_path: "web-for-dock"
+  on:
+    branch: master
+  access_key_id: "$AWS_access"
+  secret_access_key: "$AWS_secret"
+
+  
