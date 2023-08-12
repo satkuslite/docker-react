@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install: 
+  - docker build -t satkusfish/docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=ture 951a5523602b0bc4da11a62c7459b7d8e8be817aa5878ead62cd25dea8d9a4ca npm run test
